@@ -7,6 +7,7 @@ set relativenumber
 set cursorline
 set tabstop=2
 set shiftwidth=2
+set textwidth=80
 set softtabstop=2
 set termencoding=utf-8
 set nocompatible
@@ -21,12 +22,21 @@ set hlsearch
 "
 call plug#begin('C:/Users/tianshihao/AppData/Local/nvim/plugged')
 
-Plug 'joshdick/onedark.vim'
-Plug 'jdkanani/vim-material-theme'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Editor enhancement
 Plug 'jiangmiao/auto-pairs'
 Plug 'mg979/vim-visual-multi', {'branch': 'release'}
+Plug 'tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
+Plug 'tpope/vim-capslock' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
+Plug 'easymotion/vim-easymotion'
+Plug 'joshdick/onedark.vim'
+Plug 'jdkanani/vim-material-theme'
+Plug 'justinmk/vim-sneak'
+Plug 'tpope/vim-commentary'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'wellle/tmux-complete.vim'
+
+Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
@@ -45,6 +55,7 @@ inoremap jj <ESC>
 
 " Save and quit.
 nnoremap s :w<CR>
+nnoremap S :w!<CR>
 nnoremap x :q<CR>
 
 " Swap x/X and t/T, I don't need till.
@@ -112,6 +123,12 @@ nmap <silent> gr <Plug>(coc-references)
 " Symbol renaming.
 nmap <LEADER>rn <Plug>(coc-rename)
 
-nmap J <C-w><C-h>
-nmap K <C-w><C-l>
+" Window switch
+" nmap J <C-w><C-h>
+" nmap K <C-w><C-l>
+nmap J :tabnext<CR>
+nmap K :tabprevious<CR>
+
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
 
